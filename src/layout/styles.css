@@ -1,0 +1,25 @@
+.layout-header-content {
+  background: rgb(39, 121, 159);
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 100px;
+  align-items: center;
+
+}
+
+.layout-header-logo-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 170px;
+}
+
+.layout-header-right {
+  display: flex;
+  align-items: center;
+
+  :nth-child(1) {
+    margin-left: 20px;
+    color: black;
+  }
+}
