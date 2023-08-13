@@ -1,0 +1,27 @@
+.component-tabs {
+  border: 1px solid #ccc;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.component-tab-header {
+  display: flex;
+}
+
+.component-tab {
+  padding: 10px 20px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-bottom: none;
+  background-color: #f0f0f0;
+}
+
+.component-tab-content {
+  display: none;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.component-tab-content.active {
+  display: block;
+}

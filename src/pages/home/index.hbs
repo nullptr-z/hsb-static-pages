@@ -1,3 +1,39 @@
-<div>
-  <p>this home</p>
+<div class="home-top-image-content">
+  <img style="overflow: auto;" data-src="images/首页/u2.png" src="/static/images/home-u2.png">
+  <div class="home-top-image-text">
+    <div style="font-size:3rem;">数字化解决方案服务平台</div>
+    <p style="font-size: 22px;margin-bottom: 52px">帮助企业低成本快速构建数字化解决方案</p>
+    <span style="top:20px">{{>buttonTryOutTrans butText="免费试用" }}</span>
+  </div>
+</div>
+<div class="home-line-2-content">
+  {{>homeLine2Card tag="方案" title="工程项目管理" content="工程项目全生命周期管理，行业专家搭建，适用于建筑工程行业" link="/"}}
+  {{>homeLine2Card tag="方案" title="轻量级CRM客户管理" content="适用于所有行业，灵活自定义CRM，通用模板3分钟即装即用" link="/"}}
+  {{>homeLine2Card tag="方案" title="进销存管理系统" content="采购销售库存一体化管理，实时库存管理，快速实现采销存信息化" link="/"}}
+  {{>homeLine2Card tag="资料" title="低代码开发训练营" content="2小时教你从0到1搭建出企业级管理系统，人人可快速掌握的技能" link="/"}}
+</div>
+<div class="home-line-3-content">
+  <div class="home-line-3-content-inline">
+    <p class="title">6大产品力，给数字化插上翅膀</p>
+  </div>
+  {{#>tabs data="数据中台,神奇表单,项目协作,数据大屏,低代码,安全一体机"}}
+  {{#*inline "tabPan0"}}
+  <p class="title">数据中台</p>
+  {{/inline}}
+  {{#*inline "tabPan1"}}
+  tabPan1
+  {{/inline}}
+  {{#*inline "tabPan2"}}
+  tabPan2
+  {{/inline}}
+  {{#*inline "tabPan3"}}
+  tabPan3
+  {{/inline}}
+  {{#*inline "tabPan4"}}
+  tabPan4
+  {{/inline}}
+  {{#*inline "tabPan5"}}
+  tabPan5
+  {{/inline}}
+  {{/tabs}}
 </div>

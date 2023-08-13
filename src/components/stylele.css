@@ -3,4 +3,63 @@
   outline: none;
   width: 8rem;
   height: 2.5rem;
+  border-radius: 2px;
+  background: linear-gradient(90deg, rgb(129, 211, 248) 0%, rgb(31, 150, 213) 100%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  :first-child {
+    color: white;
+    margin: 0px !important;
+    font-size: 18px;
+  }
+}
+
+.comp-button-try-out-trans {
+  background: transparent;
+  outline: none;
+  width: 13rem;
+  height: 3rem;
+  border-radius: 2px;
+  border: 2px solid white;
+  background: transparent;
+
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  :first-child {
+    color: white;
+    margin: 0px !important;
+    font-size: 20px;
+  }
+}
+
+.home-line-2-card {
+  width: 310px;
+  height: 192px;
+  background: inherit;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 15px;
+  display: flex;
+  font-size: 14px;
+  font-family: '微软雅黑 Light', '微软雅黑 Regular', '微软雅黑', sans-serif;
+
+  .home-line-2-card-div {
+    margin: 10px 25px;
+
+    .home-line-2-card-title {
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+    }
+
+    .home-line-2-card-tag {
+      background-color: rgba(243, 248, 253, 1);
+      color: #1F96D5;
+    }
+  }
 }

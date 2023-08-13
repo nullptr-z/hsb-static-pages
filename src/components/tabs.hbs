@@ -1,0 +1,42 @@
+<div class="component-tabs">
+  <div class="component-tab-header">
+    {{!-- <div class="component-tab" onclick="openTab('tab1')">Tab 1</div>
+    <div class="component-tab" onclick="openTab('tab2')">Tab 2</div>
+    <div class="component-tab" onclick="openTab('tab3')">Tab 3</div> --}}
+    {{#Tabs data=data }} {{/Tabs}}
+  </div>
+  {{!-- {{#TabPan data=data }}
+    123
+  {{/TabPan}} --}}
+  <div class="component-tab-content active" id="tab0">
+    {{> tabPan0}}
+  </div>
+  <div class="component-tab-content" id="tab1">
+    {{> tabPan1}}
+  </div>
+  <div class="component-tab-content" id="tab2">
+    {{> tabPan2}}
+  </div>
+  <div class="component-tab-content" id="tab3">
+    {{> tabPan3}}
+  </div>
+  <div class="component-tab-content" id="tab4">
+    {{> tabPan4}}
+  </div>
+  <div class="component-tab-content" id="tab5">
+    {{> tabPan5}}
+  </div>
+</div>
+<script>
+  function openTab(tabId) {
+    // 隐藏全部tab内容
+    const tabContents = document.querySelectorAll('.component-tab-content');
+    tabContents.forEach(tabContent => {
+      tabContent.classList.remove('active');
+    });
+
+    // 显示选中的tab内容
+    const selectedTab = document.getElementById(tabId);
+    selectedTab.classList.add('active');
+  }
+</script>

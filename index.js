@@ -18,7 +18,7 @@ export const PAGES = env.PAGES || "src/pages";
 // const COMPONENTS_DIR = env.STATIC_DIR || "pages/components"
 
 // 编译layout
-async function buildLayout() {
+async function buildPages() {
   // 编译layout模板
   const layoutDir = `${MAIN}/layout`
   const [indexTemp, headerTemp, footerTemp] = await Promise.all([
@@ -31,8 +31,9 @@ async function buildLayout() {
   const compileFooter = handlebars.compile(footerTemp)
 
   // src/pages 目录下的所有文件
-  iteratorPages(PAGES, (main, route) => {
-    const page = compileResult({ main, header: compileHeader, footer: compileFooter })
+  iteratorPages(PAGES, (pageTemp, route) => {
+    const compilePage = handlebars.compile(pageTemp)
+    const page = compileResult({ main: compilePage(), header: compileHeader, footer: compileFooter })
     if (route === 'home/index') {
       route = 'index'
     }
@@ -51,9 +52,9 @@ function iteratorPages(prePath, callback) {
     if (stat.isDirectory()) {
       iteratorPages(pagePath, callback)
     } else {
+      if (!pagePath.endsWith('.hbs')) return
       const route = path.relative(PAGES, pagePath).replace(/\.hbs$/, '')
       const main = await loadFromFile(pagePath)
-      console.log('route: ', route);
       callback(main, route)
     }
   })
@@ -64,6 +65,7 @@ async function registerComponent(COMPONENTS_DIR) {
   const components = await asyncReadDir(COMPONENTS_DIR);
   // todo: 批量注册
   components.forEach(async (component) => {
+    if (!component.endsWith('.hbs')) return
     const componentName = path.basename(component, ".hbs");
     const componentPath = path.join(COMPONENTS_DIR, component);
     const componentTemp = await loadFromFile(componentPath);
@@ -110,8 +112,17 @@ checkAndMkdir(OUT_DIR)
 buildStatic()
 // 处理css
 buildStyles(`${MAIN}`)
+
+handlebars.registerHelper("Tabs", (option) => {
+  const tabs = option.hash.data?.split(',');
+  let result = ''
+  tabs?.forEach((tab, i) => {
+    result += `<div class="component-tab"  onclick="openTab('tab${i}')">${tab}</div>`
+  })
+  return result
+})
 // todo: 注册一定要完成后再编译页面，否则会找不到组件
 await registerComponent(`${MAIN}/components`)
-// 编译界面
-buildLayout()
+// // 编译界面
+buildPages()
 
